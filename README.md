@@ -6,21 +6,26 @@ A collection of agent skills for privacy policy analysis.
 
 ### privacy-policy-reviewer
 
-Review a privacy policy or terms of service against a structured 12-row
-scorecard. Combines TOSDR's human-curated ratings with LLM analysis.
-Designed for privacy-conscious users who want a fast, honest, sourced read
-of what they are actually agreeing to.
+Review a privacy policy or terms of service against a structured scorecard.
+Combines ToS;DR's human-curated ratings with LLM analysis. Use it next time
+instead of just clicking "Accept"! 
 
 **Features:**
-- TOSDR API lookup — surfaces existing human-curated ratings and points
-- 12-row scorecard covering cookies, data collection, advertising, your
-  rights, content ownership, retention, terms changes, suspension,
-  arbitration, acquisition, and government requests
-- Three review tiers: Standard, Enhanced, High Sensitivity
-- Hybrid output: TOSDR-verified findings clearly distinguished from
+- ToS;DR API lookup — surfaces existing human-curated ratings and "Points"
+- Summary scorecard covering cookies, data collection, advertising and more.
+- Hybrid output: ToS;DR-verified findings clearly distinguished from
   LLM-generated analysis
 - Jurisdiction-aware narrative (US, EU/GDPR, US state-specific)
 - Direct policy quotes for every finding
+
+**Supports different Multiple Privacy Review options:**
+- Our privacy concerns depend on context and the type of service.
+- Methodology to support reviews based on the users's threat model, level
+of privacy concern, or type of application. 
+- There are three reviews currently written into the skill: 
+    - Standard, Enhanced, and High Sensitivity
+- create your own on the fly if none of them fit. 
+
 
 **Install:**
 ```
@@ -33,13 +38,13 @@ npx skills add amanahuja/privacy-skills@privacy-policy-reviewer
 - "What am I agreeing to if I sign up for [service]?"
 
 **Resources used:**
-- [TOSDR](https://tosdr.org) — Terms of Service; Didn't Read
-- [TOSDR API](https://docs.tosdr.org/developer)
+- [ToS;DR](https://tosdr.org) — Terms of Service; Didn't Read
+- [ToS;DR API](https://docs.tosdr.org/developer)
 - [Open Terms Archive](https://opentermsarchive.org)
 
 ---
 
-## Planned Skills
+## Future / Planned Skills
 
 - **privacy-policy-diff** — Compare two versions of a privacy policy and
   surface what changed, whether changes are better or worse for users, and
@@ -50,4 +55,4 @@ npx skills add amanahuja/privacy-skills@privacy-policy-reviewer
 ## Contributing
 
 Issues and pull requests welcome. To suggest a new skill or report an
-inaccuracy in the TOSDR taxonomy mapping, open an issue.
+inaccuracy in the ToS;DR taxonomy mapping, open an issue.
