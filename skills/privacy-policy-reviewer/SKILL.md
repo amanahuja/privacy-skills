@@ -1,3 +1,9 @@
+---
+name: privacy-policy-reviewer
+description: Review a privacy policy or terms of service against a structured scorecard, combining TOSDR's human-curated ratings with LLM analysis. Use when a user wants to review, analyze, or understand a privacy policy or terms of service before signing up for a service or after receiving a policy update notification.
+license: MIT
+---
+
 # Skill: privacy-policy-reviewer
 
 Review a privacy policy or terms of service against a structured scorecard,
