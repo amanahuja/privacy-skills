@@ -67,8 +67,29 @@ If the user confirms a TOSDR match:
 - Fetch full service data: `GET https://api.tosdr.org/service/v3?id=<id>`
 - Note: `rating`, `is_comprehensively_reviewed`, `points` array, `documents` array
 
-If no URL has been provided yet and TOSDR has document URLs in its record,
-use those as the policy source. Otherwise ask the user for the policy URL.
+**Policy source resolution — follow this order strictly, do not skip steps:**
+
+1. The `documents` array in the TOSDR service response contains the exact
+   URLs TOSDR used to analyze this service. Extract these URLs first.
+   These are the authoritative policy sources for this service.
+
+2. If the user provided a URL in Step 1, add it to the document list if
+   it is not already present.
+
+3. For scorecard rows covered by TOSDR approved points: use the TOSDR data
+   directly. Do NOT fetch any URL for these rows.
+
+4. For scorecard rows NOT covered by TOSDR points (i.e., gaps): fetch the
+   documents[] URLs to find relevant policy language for LLM analysis.
+
+5. If `documents` is empty AND the user provided no URL: ask the user to
+   provide the policy URL directly. Do not attempt to guess URLs, do not
+   search for alternate paths, do not try common patterns like /privacy
+   or /en/privacy.
+
+6. If `is_comprehensively_reviewed` is true: expect most or all rows to
+   be covered by TOSDR points. Limit fetching to only what is needed for
+   uncovered rows. Do not re-analyze rows that TOSDR has already covered.
 
 ### Step 3: Select Review Tier
 
